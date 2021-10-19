@@ -37,7 +37,7 @@ export class AddMsg extends Component {
                     name=""
                     cols="30" rows="5"
                     type="text"
-                    name="msg" value={txt}
+                    name="txt" value={txt}
                     placeholder="Massage"
                     onChange={this.handleChange}>
                 </textarea>

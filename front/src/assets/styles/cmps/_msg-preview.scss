@@ -1,0 +1,30 @@
+.msg-preview {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-family: sans-serif;
+
+    .img-container {
+        height: 50px;
+        background-color: lightgray;
+        border-radius: 5px;
+        img {
+            height: inherit;
+            border-radius: 5px;
+        }
+    }
+    .msg-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        p {
+            font-size: 0.95rem;
+            &.email {
+                font-weight: 700;
+            }
+            &.text {
+                color: gray;
+            }
+        }
+    }
+}

@@ -8,6 +8,7 @@ async function query(filterBy = {}) {
 
         const collection = await dbService.getCollection('msg')
         var msgs = await collection.find(criteria).toArray()
+        msgs.reverse()
         console.log('from service', msgs)
         return msgs
     } catch (err) {
@@ -19,8 +20,8 @@ async function query(filterBy = {}) {
 async function add(msg) {
     try {
         const collection = await dbService.getCollection('msg')
-        const addedMsg = await collection.insertOne(msg)
-        return addedMsg
+        await collection.insertOne(msg)
+        return msg
     } catch (err) {
         logger.error('cannot insert msg', err)
         throw err
