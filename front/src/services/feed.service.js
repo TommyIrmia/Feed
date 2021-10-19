@@ -1,7 +1,7 @@
 import { httpService } from './http.service'
 import { md5 } from 'crypto-js/md5'
 
-export const flightService = {
+export const feedService = {
     query,
     addMsg
 }

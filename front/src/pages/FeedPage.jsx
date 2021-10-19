@@ -1,17 +1,36 @@
 import React, { Component } from 'react'
-import { AddComment } from './../cmps/AddComment';
+import { feedService } from '../services/feed.service';
+import { AddMsg } from './../cmps/AddMsg';
 
 export class FeedPage extends Component {
 
+    state = {
+        msgs: [],
+    }
 
-    onAddComment = (comment) => {
-        console.log('comment',comment);
+    componentDidMount() {
+        this.loadMsgs()
+    }
+
+    loadMsgs = async () => {
+        try {
+            const msgs = await feedService.query()
+            this.setState({ msgs })
+        } catch (err) {
+            console.error('Couldnt get msgs', err)
+        }
+    }
+
+    onAddMsg = (comment) => {
+        console.log('comment', comment);
     }
 
     render() {
+        const {msgs} = this.state
+        console.log('msgs from render', msgs)
         return (
             <main className="feed-page" >
-               <AddComment onAddComment={this.onAddComment} /> 
+                <AddMsg onAddMsg={this.onAddMsg} />
             </main>
         )
     }

@@ -1,35 +1,35 @@
 import React, { Component } from 'react'
 
-export class AddComment extends Component {
+export class AddMsg extends Component {
 
     state = {
-        comment: {
+        msg: {
             email: '',
-            msg: ''
+            txt: ''
         }
     }
 
     handleChange = (ev) => {
         const field = ev.target.name;
         const value = ev.target.value;
-        this.setState((prevState) => ({ ...prevState, comment: { ...prevState.comment, [field]: value } }))
+        this.setState((prevState) => ({ ...prevState, msg: { ...prevState.msg, [field]: value } }))
     }
 
     render() {
-        const { comment } = this.state;
-        const { email, msg } = this.state.comment;
-        const { onAddComment } = this.props;
+        const { msg } = this.state;
+        const { email, txt } = this.state.msg;
+        const { onAddMsg } = this.props;
         return (
             <form className="add-comment" onSubmit={(ev) => {
                 ev.preventDefault()
-                onAddComment(comment)
+                onAddMsg(msg)
             }}>
 
                 <input
                     type="text"
                     name="email"
                     value={email}
-                    placeholder="Emial"
+                    placeholder="Email"
                     autoFocus={true}
                     onChange={this.handleChange} />
 
@@ -37,10 +37,11 @@ export class AddComment extends Component {
                     name=""
                     cols="30" rows="5"
                     type="text"
-                    name="msg" value={msg}
+                    name="msg" value={txt}
                     placeholder="Massage"
                     onChange={this.handleChange}>
                 </textarea>
+
                 <div className="btn-container">
                     <button>SUBMIT</button>
                 </div>
