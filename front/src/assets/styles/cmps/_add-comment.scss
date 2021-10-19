@@ -21,10 +21,14 @@
 
     button {
         height: 30px;
-        background: #03a9f4;
+        background: #039ee6;
         color: white;
         border: none;
         border-radius: rem(5px);
-        cursor: pointer;
+        
+        &:hover{
+            background: #03a9f4;
+            cursor: pointer;
+        }
     }
 }

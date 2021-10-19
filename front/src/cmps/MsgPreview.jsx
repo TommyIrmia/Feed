@@ -1,7 +1,6 @@
 import React from 'react'
 
-export default function MsgPreview({ msg }) {
-    console.log(msg)
+export function MsgPreview({ msg }) {
     return (
         <div className="msg-preview">
             <div className="img-container">

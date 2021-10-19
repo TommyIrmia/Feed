@@ -1,11 +1,9 @@
 const feedService = require('./feed.service.js');
 const logger = require('../../services/logger.service')
 
-// GET LIST
 async function getMsgs(req, res) {
   try {
     var queryParams = req.query;
-    console.log('from controller', queryParams)
     const msgs = await feedService.query(queryParams)
     res.json(msgs);
   } catch (err) {
@@ -14,7 +12,6 @@ async function getMsgs(req, res) {
   }
 }
 
-// POST (add car)
 async function addMsg(req, res) {
   try {
     const msg = req.body;
