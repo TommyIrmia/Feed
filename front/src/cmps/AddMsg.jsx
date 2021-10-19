@@ -26,11 +26,12 @@ export class AddMsg extends Component {
             }}>
 
                 <input
-                    type="text"
+                    type="email"
                     name="email"
                     value={email}
                     placeholder="Email"
                     autoFocus={true}
+                    required
                     onChange={this.handleChange} />
 
                 <textarea
@@ -39,6 +40,7 @@ export class AddMsg extends Component {
                     type="text"
                     name="msg" value={txt}
                     placeholder="Massage"
+                    required
                     onChange={this.handleChange}>
                 </textarea>
 
